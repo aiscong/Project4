@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428214441) do
+ActiveRecord::Schema.define(version: 20140429000845) do
+
+  create_table "galleries", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "galleries", ["user_id", "created_at"], name: "index_galleries_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

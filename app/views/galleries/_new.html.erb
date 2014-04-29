@@ -1,0 +1,10 @@
+<% provide(:title, "New Gallery") %>
+  <%= form_for(@gallery) do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<p><%= link_to "Back to User", root_path %></p>
