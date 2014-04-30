@@ -1,12 +1,17 @@
 class GalleriesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
+  
   def new
     @gallery = Gallery.new(:user_id => params[:user_id])
   end
   
+  def show
+    @gallery = Gallery.find(params[:id])
+  end
+
   def create
-    @gallery = current_user.galleries.build(galleries_params)
+    @gallery = current_user.galleries.build(gallery_params)
     if @gallery.save
       flash[:success] = "Successfully created gallery."
       redirect_to root_url
@@ -38,9 +43,9 @@ class GalleriesController < ApplicationController
 
 private
     def gallery_params
-      params.require(:gallery).permit(:name)
+      params.require(:gallery).permit(:name, :user_id)
     end
-     def correct_user
+    def correct_user
       @gallery = current_user.galleries.find_by(id: params[:id])
       redirect_to root_url if @gallery.nil?
     end

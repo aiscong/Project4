@@ -1,5 +1,7 @@
 <li>
-  <span class="content"><%= gallery.name %></span>
+  <span class="content">
+     <%= link_to gallery.name, gallery %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(gallery.created_at) %> ago.
   </span>
