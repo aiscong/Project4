@@ -11,7 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+jQuery(function($) { // as soon as DOM is ready
+$(".fancybox").fancybox({ // initialize fancybox on all pages where it is present
+        helpers: {
+            title: {type: 'inside'},
+            buttons: {}
+        }
+    });
+});

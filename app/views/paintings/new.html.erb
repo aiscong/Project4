@@ -1,20 +1,18 @@
 <% provide(:title, "New Painting") %>
 <%= form_for @painting, :html => {:multipart => true} do |f| %>
+ <%= render 'shared/error_messages', object: f.object %>
   <%= f.hidden_field :gallery_id %>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
   <p>
   	<%= f.file_field :image %>
   </p>
-  
-  <p>
-    <%= f.label :remote_image_url, "or image URL" %><br />
+   <p>
+    <%= f.label :remote_image_url, "or image URL" %>
     <%= f.text_field :remote_image_url %>
   </p>
-
-  <p><%= f.submit %></p>
-<% end %>
-
+  <%= f.submit "Create Painting", class: "btn btn-large btn-primary" %>
+  <% end %>
 <p><%= link_to "Back to Gallery", @painting.gallery %></p>

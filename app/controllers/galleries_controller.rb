@@ -2,9 +2,7 @@ class GalleriesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
   
-  def new
-    @gallery = Gallery.new(:user_id => params[:user_id])
-  end
+  
   
   def show
     @gallery = Gallery.find(params[:id])
@@ -16,7 +14,7 @@ class GalleriesController < ApplicationController
       flash[:success] = "Successfully created gallery."
       redirect_to root_url
     else
-      render 'new'
+       render 'static_pages/home'
     end
   end
 

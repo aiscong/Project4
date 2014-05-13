@@ -6,9 +6,9 @@
     Posted <%= time_ago_in_words(gallery.created_at) %> ago.
   </span>
   <% if current_user?(gallery.user) %>
-    <%= link_to "delete", gallery, method: :delete,
+    <%= link_to "Delete", gallery, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: gallery.name %>
-    <%= link_to "edit", edit_gallery_path(gallery) %> 
+    <%= link_to "Edit", edit_gallery_path(gallery) %> 
   <% end %>
 </li>

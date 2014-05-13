@@ -3,6 +3,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.new(:gallery_id => params[:gallery_id])
   end
 
+
   def create
     @painting = Painting.new(painting_params)
     if @painting.save

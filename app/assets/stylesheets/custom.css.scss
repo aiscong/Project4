@@ -58,10 +58,10 @@ h2 {
 }
 
 p {
+ clear:both;  
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 /* header */
 
@@ -84,6 +84,7 @@ p {
 /* footer */
 
 footer {
+ clear:both;  
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
@@ -184,17 +185,7 @@ input {
   }
 }
 
-/* microposts */
 
-.microposts {
-  list-style: none;
-  margin: 10px 0 0 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-}
 .content {
   display: block;
 }
@@ -211,7 +202,6 @@ aside {
     margin-bottom: 5px;
   }
 }
-
 .stats {
   overflow: auto;
   a {
@@ -239,4 +229,11 @@ aside {
   .gravatar {
     margin: 1px 1px;
   }
+}
+
+.painting {
+  margin:10px;
+  float: left;
+  display: block;
+   margin-bottom: 10px;
 }
