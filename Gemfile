@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'sass', '3.2.13'
 gem 'fancybox-rails'
+gem 'fog'
 group :development, :test do
 	gem 'sqlite3', '1.3.8'
 	gem 'rspec-rails', '2.13.1'
