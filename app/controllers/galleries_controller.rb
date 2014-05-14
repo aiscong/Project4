@@ -12,7 +12,7 @@ class GalleriesController < ApplicationController
     @gallery = current_user.galleries.build(gallery_params)
     if @gallery.save
       flash[:success] = "Successfully created gallery."
-      redirect_to root_url
+      redirect_to user_path(current_user)
     else
        render 'static_pages/home'
     end

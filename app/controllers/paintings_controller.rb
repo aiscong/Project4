@@ -1,8 +1,8 @@
 class PaintingsController < ApplicationController
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 	def new
     @painting = Painting.new(:gallery_id => params[:gallery_id])
   end
-
 
   def create
     @painting = Painting.new(painting_params)
@@ -37,5 +37,9 @@ class PaintingsController < ApplicationController
   
   def painting_params
       params.require(:painting).permit(:name, :gallery_id, :image, :remote_image_url)
+    end
+    def correct_user
+      @painting = current_user.galleries.find_by(id: params[:gallery_id]).find_by(id: params[:id])
+      redirect_to root_url if @painting.nil?
     end
 end

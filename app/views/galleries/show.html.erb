@@ -2,26 +2,33 @@
 
 <div class="paintings">
   <% @gallery.paintings.each do |painting| %> 
-    <div class ="painting">
-      <%= link_to (image_tag painting.image_url(:thumb)), 
-                    painting.image_url.to_s, 
-                    class: 'fancybox', rel: 'group' if painting.image? %>
-      <div class ="name"><%= painting.name %></div>
-      <div class="actions">
-        <%= link_to "Edit", edit_painting_path(painting) %> |
-        <%= link_to "Delete", painting, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: painting.name %>
-      </div>
+  <div class ="painting">
+    <%= link_to (image_tag painting.image_url(:thumb)), 
+    painting.image_url.to_s, 
+    class: 'fancybox', rel: 'group' if painting.image? %>
+    <div class ="name"><%= painting.name %></div>
+    <div class="actions">
+      <% if current_user?(@gallery.user) %>
+      <%= link_to "Edit", edit_painting_path(painting) %> |
+      <%= link_to "Delete", painting, method: :delete,
+      data: { confirm: "You sure?" },
+      title: painting.name %>
+      <% end %>
     </div>
+  </div>
   <% end %>
   <div class="Clear"></div>
 </div>
 <p>
-  <%= link_to "Add a Painting", new_painting_path(:gallery_id => @gallery) %> |
-    <%= link_to "Remove Gallery", @gallery, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: @gallery.name %>
+    <% if current_user?(@gallery.user) %>
+      <%= link_to "Add a Painting", new_painting_path(:gallery_id => @gallery) %> |
+  <%= link_to "Remove Gallery", @gallery, method: :delete,
+  data: { confirm: "You sure?" },
+  title: @gallery.name %>
+  <% end %>
+  
 </p>
+
+
 
 
