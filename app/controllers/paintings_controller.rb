@@ -39,7 +39,7 @@ class PaintingsController < ApplicationController
       params.require(:painting).permit(:user_id,:name, :gallery_id, :image, :remote_image_url)
     end
     def correct_user
-      @painting = current_user.galleries.find_by(id: params[:gallery_id]).find_by(id: params[:id])
+      @painting = current_user.paintings.find_by(id: params[:id])
       redirect_to root_url if @painting.nil?
     end
 end
