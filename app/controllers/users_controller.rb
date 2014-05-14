@@ -65,13 +65,7 @@ end
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
-   def following?(other_user)
-    relationships.find_by(followed_id: other_user.id)
-  end
 
-  def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
-  end
 	private
 
     def user_params
