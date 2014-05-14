@@ -80,8 +80,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    fancybox-rails (0.2.1)
-      railties (>= 3.1.0)
+    fancybox2-rails (0.2.8)
+      railties (>= 3.1.0, < 5.0)
     ffi (1.9.3)
     fog (1.22.0)
       fog-brightbox
@@ -217,7 +217,7 @@ DEPENDENCIES
   database_cleaner!
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
-  fancybox-rails
+  fancybox2-rails (~> 0.2.8)
   fog
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)

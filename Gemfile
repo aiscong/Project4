@@ -12,7 +12,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'sass', '3.2.13'
-gem 'fancybox-rails'
+gem 'fancybox2-rails', '~> 0.2.8'
 gem 'fog'
 
 group :development, :test do
@@ -40,5 +40,5 @@ end
 
 group :production do
 	gem 'pg', '0.15.1'
-	gem 'rails_12factor', '0.0.2'
+	gem 'rails_12factor', '0.0.2' 
 end
