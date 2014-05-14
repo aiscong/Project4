@@ -2,8 +2,6 @@ class GalleriesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
   
-  
-  
   def show
     @gallery = Gallery.find(params[:id])
   end

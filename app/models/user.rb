@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
-  
+  has_many  :paintings, dependent: :destroy
   has_many :galleries, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
      def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
+
+  def feed
+    Painting.from_users_followed_by(self)
+  end
+
 
   def follow!(other_user)
     relationships.create!(followed_id: other_user.id)

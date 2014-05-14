@@ -1,5 +1,8 @@
 <% provide(:title, @gallery.name) %>
+<h1>
 
+    <%= @gallery.name %>
+</h1>
 <div class="paintings">
   <% @gallery.paintings.each do |painting| %> 
   <div class ="painting">
@@ -7,6 +10,9 @@
     painting.image_url.to_s, 
     class: 'fancybox', rel: 'group' if painting.image? %>
     <div class ="name"><%= painting.name %></div>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(painting.created_at) %> ago.
+  </span>
     <div class="actions">
       <% if current_user?(@gallery.user) %>
       <%= link_to "Edit", edit_painting_path(painting) %> |
@@ -21,7 +27,7 @@
 </div>
 <p>
     <% if current_user?(@gallery.user) %>
-      <%= link_to "Add a Painting", new_painting_path(:gallery_id => @gallery) %> |
+      <%= link_to "Add a Painting", new_painting_path(:gallery_id => @gallery, :user_id => @gallery.user) %> |
   <%= link_to "Remove Gallery", @gallery, method: :delete,
   data: { confirm: "You sure?" },
   title: @gallery.name %>

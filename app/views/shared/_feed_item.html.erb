@@ -1,0 +1,14 @@
+<li>
+  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+  <div class="user">
+    <%= link_to feed_item.user.name, feed_item.user %>
+  </div>
+   <div class ="painting_feed">
+    <%= link_to (image_tag feed_item.image_url(:thumb)), 
+    feed_item.image_url.to_s, 
+    class: 'fancybox', rel: 'group' if feed_item.image? %>
+</div>
+  <div class="timestamps">
+    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+  </div>
+</li>

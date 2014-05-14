@@ -1,7 +1,7 @@
 class PaintingsController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :destroy]
 	def new
-    @painting = Painting.new(:gallery_id => params[:gallery_id])
+    @painting = Painting.new(:gallery_id => params[:gallery_id], :user_id => params[:user_id])
   end
 
   def create
@@ -36,7 +36,7 @@ class PaintingsController < ApplicationController
   end
   
   def painting_params
-      params.require(:painting).permit(:name, :gallery_id, :image, :remote_image_url)
+      params.require(:painting).permit(:user_id,:name, :gallery_id, :image, :remote_image_url)
     end
     def correct_user
       @painting = current_user.galleries.find_by(id: params[:gallery_id]).find_by(id: params[:id])
