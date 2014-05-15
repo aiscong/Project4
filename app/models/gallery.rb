@@ -4,4 +4,8 @@ class Gallery < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 	validates :name, presence: true, length: { maximum: 40 }
 	has_many :paintings, dependent: :destroy
+	def feed
+    paintings
+  	end
+
 end

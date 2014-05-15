@@ -11,8 +11,9 @@ class GalleriesController < ApplicationController
     if @gallery.save
       flash[:success] = "Successfully created gallery."
       redirect_to user_path(current_user)
-    else
-       render 'static_pages/home'
+     else
+      @feed_items =  current_user.feed.paginate(page: params[:page])
+      render 'static_pages/home'
     end
   end
 
