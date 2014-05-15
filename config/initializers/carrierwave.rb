@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider: "AWS",
-    aws_access_key_id: "AKIAJAQV6T33CYNPFMCQ",
-    aws_secret_access_key: "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",
+    aws_access_key_id: ENV['aws_access_key_id'],
+    aws_secret_access_key: ENV['aws_secret_access_key'] ,
     region: "us-east-1"
   }
   config.fog_directory = "Project4"

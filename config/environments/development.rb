@@ -26,4 +26,7 @@ Project4::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  ENV['aws_access_key_id'] = "AKIAJAQV6T33CYNPFMCQ";
+  ENV['aws_secret_access_key'] = "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";
 end
